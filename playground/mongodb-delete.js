@@ -5,8 +5,11 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp",(error,client)=>{
     }
     console.log("Connected to MongoDB");
     const db = client.db("TodoApp");
-
+/* 
     db.collection("Todos").deleteMany({text:"get out of cz"}).then((result)=>{
+        console.log(result);
+    }); */
+    db.collection("Todos").findOneAndDelete({completed:true}).then((result)=>{
         console.log(result);
     });
 
